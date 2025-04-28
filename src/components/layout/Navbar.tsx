@@ -37,7 +37,7 @@ const Navbar = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center">
           <img 
-            src="public/lovable-uploads/b3035c1d-179e-4b16-956b-8e053f5a090b.png"
+            src="/lovable-uploads/c9cc160c-13c7-4fef-8d3d-bda471ffd653.png"
             alt="Sammy Mitumba Stores Logo"
             className="h-12 w-auto mr-2"
           />

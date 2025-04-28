@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { ShoppingCart, Search, User, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils';
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +18,11 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location]);
 
   return (
     <nav
@@ -30,24 +36,59 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center">
-          <div className="relative w-10 h-10 mr-2">
-            <div className="absolute inset-0 bg-sammy-pink rounded-sm transform rotate-45"></div>
-            <div className="absolute inset-0 flex items-center justify-center text-white font-bold text-lg">S</div>
-          </div>
-          <div>
-            <h1 className="text-xl font-bold text-sammy-dark">
-              SAMMY <span className="text-sammy-pink">MITUMBA</span>
-            </h1>
-            <p className="text-xs -mt-1 text-gray-500">THE BEST QUALITY MITUMBA</p>
-          </div>
+          <img 
+            src="public/lovable-uploads/b3035c1d-179e-4b16-956b-8e053f5a090b.png"
+            alt="Sammy Mitumba Stores Logo"
+            className="h-12 w-auto mr-2"
+          />
         </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
-          <Link to="/" className="text-sammy-dark font-medium hover:text-sammy-pink transition-colors">Home</Link>
-          <Link to="/products" className="text-sammy-dark font-medium hover:text-sammy-pink transition-colors">Products</Link>
-          <Link to="/about" className="text-sammy-dark font-medium hover:text-sammy-pink transition-colors">About</Link>
-          <Link to="/contact" className="text-sammy-dark font-medium hover:text-sammy-pink transition-colors">Contact</Link>
+          <Link 
+            to="/" 
+            className={cn(
+              "font-medium transition-colors",
+              location.pathname === "/" 
+                ? "text-sammy-pink" 
+                : "text-sammy-dark hover:text-sammy-pink"
+            )}
+          >
+            Home
+          </Link>
+          <Link 
+            to="/products"
+            className={cn(
+              "font-medium transition-colors",
+              location.pathname === "/products" 
+                ? "text-sammy-pink" 
+                : "text-sammy-dark hover:text-sammy-pink"
+            )}
+          >
+            Products
+          </Link>
+          <Link 
+            to="/about"
+            className={cn(
+              "font-medium transition-colors",
+              location.pathname === "/about" 
+                ? "text-sammy-pink" 
+                : "text-sammy-dark hover:text-sammy-pink"
+            )}
+          >
+            About
+          </Link>
+          <Link 
+            to="/contact"
+            className={cn(
+              "font-medium transition-colors",
+              location.pathname === "/contact" 
+                ? "text-sammy-pink" 
+                : "text-sammy-dark hover:text-sammy-pink"
+            )}
+          >
+            Contact
+          </Link>
         </div>
 
         {/* Icons */}
@@ -82,28 +123,48 @@ const Navbar = () => {
       >
         <Link 
           to="/" 
-          className="text-xl font-medium p-4 border-b"
+          className={cn(
+            "text-xl p-4 border-b",
+            location.pathname === "/" 
+              ? "text-sammy-pink font-medium" 
+              : "text-sammy-dark font-medium"
+          )}
           onClick={() => setIsMobileMenuOpen(false)}
         >
           Home
         </Link>
         <Link 
           to="/products" 
-          className="text-xl font-medium p-4 border-b"
+          className={cn(
+            "text-xl p-4 border-b",
+            location.pathname === "/products" 
+              ? "text-sammy-pink font-medium" 
+              : "text-sammy-dark font-medium"
+          )}
           onClick={() => setIsMobileMenuOpen(false)}
         >
           Products
         </Link>
         <Link 
           to="/about" 
-          className="text-xl font-medium p-4 border-b"
+          className={cn(
+            "text-xl p-4 border-b",
+            location.pathname === "/about" 
+              ? "text-sammy-pink font-medium" 
+              : "text-sammy-dark font-medium"
+          )}
           onClick={() => setIsMobileMenuOpen(false)}
         >
           About
         </Link>
         <Link 
           to="/contact" 
-          className="text-xl font-medium p-4 border-b"
+          className={cn(
+            "text-xl p-4 border-b",
+            location.pathname === "/contact" 
+              ? "text-sammy-pink font-medium" 
+              : "text-sammy-dark font-medium"
+          )}
           onClick={() => setIsMobileMenuOpen(false)}
         >
           Contact

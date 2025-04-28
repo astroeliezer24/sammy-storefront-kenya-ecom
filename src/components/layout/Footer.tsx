@@ -12,16 +12,11 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center">
-              <div className="relative w-10 h-10 mr-3">
-                <div className="absolute inset-0 bg-sammy-pink rounded-sm transform rotate-45"></div>
-                <div className="absolute inset-0 flex items-center justify-center text-white font-bold text-lg">S</div>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold">
-                  SAMMY <span className="text-sammy-pink">MITUMBA</span>
-                </h3>
-                <p className="text-xs text-gray-400">THE BEST QUALITY MITUMBA</p>
-              </div>
+              <img 
+                src="public/lovable-uploads/b3035c1d-179e-4b16-956b-8e053f5a090b.png"
+                alt="Sammy Mitumba Stores Logo"
+                className="h-12 w-auto mr-3"
+              />
             </div>
             <p className="text-gray-300 text-sm">
               Sammy Wholesale Mitumba Store offers the best quality second-hand clothing bales in Kenya. We provide a wide selection of premium mitumba for retailers and wholesalers.
@@ -56,12 +51,12 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4 text-sammy-pink">Categories</h3>
             <ul className="space-y-2">
-              <li><Link to="/products/mens-clothing" className="text-gray-300 hover:text-sammy-pink transition-colors">Men's Clothing</Link></li>
-              <li><Link to="/products/womens-clothing" className="text-gray-300 hover:text-sammy-pink transition-colors">Women's Clothing</Link></li>
-              <li><Link to="/products/kids-clothing" className="text-gray-300 hover:text-sammy-pink transition-colors">Kids Clothing</Link></li>
-              <li><Link to="/products/shoes" className="text-gray-300 hover:text-sammy-pink transition-colors">Shoes</Link></li>
-              <li><Link to="/products/bags" className="text-gray-300 hover:text-sammy-pink transition-colors">Bags & Accessories</Link></li>
-              <li><Link to="/products/bales" className="text-gray-300 hover:text-sammy-pink transition-colors">Wholesale Bales</Link></li>
+              <li><Link to="/products?category=mens-clothing" className="text-gray-300 hover:text-sammy-pink transition-colors">Men's Clothing</Link></li>
+              <li><Link to="/products?category=womens-clothing" className="text-gray-300 hover:text-sammy-pink transition-colors">Women's Clothing</Link></li>
+              <li><Link to="/products?category=kids-clothing" className="text-gray-300 hover:text-sammy-pink transition-colors">Kids Clothing</Link></li>
+              <li><Link to="/products?category=shoes" className="text-gray-300 hover:text-sammy-pink transition-colors">Shoes</Link></li>
+              <li><Link to="/products?category=bags" className="text-gray-300 hover:text-sammy-pink transition-colors">Bags & Accessories</Link></li>
+              <li><Link to="/products?category=bales" className="text-gray-300 hover:text-sammy-pink transition-colors">Wholesale Bales</Link></li>
             </ul>
           </div>
 

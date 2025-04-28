@@ -11,21 +11,21 @@ const Hero = () => {
       title: "Premium Quality Mitumba",
       subtitle: "Direct from the source",
       description: "Explore our wide selection of high-quality second-hand clothing, shoes, and accessories.",
-      image: "public/lovable-uploads/dca564d9-94d4-4140-aea5-cfb7529ac3a1.png",
+      image: "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Y2xvdGhpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
       bgColor: "from-pink-500/20 to-purple-600/20",
     },
     {
       title: "Wholesale & Retail Options",
       subtitle: "Best prices guaranteed",
       description: "Find bales and individual items for your business or personal needs.",
-      image: "public/lovable-uploads/e5cb8202-437a-43af-a513-d7f6b21328bb.png",
+      image: "https://images.unsplash.com/photo-1605518216938-7c31b7b14ad0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGNsb3RoaW5nJTIwc3RvcmV8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
       bgColor: "from-blue-500/20 to-indigo-600/20",
     },
     {
       title: "Nationwide Delivery",
       subtitle: "Fast and reliable",
       description: "We deliver to all major towns and cities across Kenya.",
-      image: "public/lovable-uploads/c9cc160c-13c7-4fef-8d3d-bda471ffd653.png",
+      image: "https://images.unsplash.com/photo-1617038220319-276d3cfab638?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hpcHBpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
       bgColor: "from-green-500/20 to-teal-600/20",
     }
   ];

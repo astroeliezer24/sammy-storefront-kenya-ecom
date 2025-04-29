@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { ShoppingCart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { toast } from 'sonner';
+import { useCart } from '@/contexts/CartContext';
 
 export interface ProductProps {
   id: string;
@@ -27,6 +27,7 @@ const ProductCard = ({
   discount = 0 
 }: ProductProps) => {
   const [isHovered, setIsHovered] = useState(false);
+  const { addItem } = useCart();
   
   const formattedPrice = new Intl.NumberFormat('en-KE', {
     style: 'currency',
@@ -42,7 +43,7 @@ const ProductCard = ({
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
-    toast.success(`Added ${name} to your cart!`);
+    addItem({ id, name, price, image });
   };
 
   return (

@@ -4,11 +4,13 @@ import { Link, useLocation } from 'react-router-dom';
 import { ShoppingCart, Search, User, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { useCart } from '@/contexts/CartContext';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { itemCount } = useCart();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,7 +39,7 @@ const Navbar = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center">
           <img 
-            src="/lovable-uploads/c9cc160c-13c7-4fef-8d3d-bda471ffd653.png"
+            src="/lovable-uploads/dca564d9-94d4-4140-aea5-cfb7529ac3a1.png"
             alt="Sammy Mitumba Stores Logo"
             className="h-12 w-auto mr-2"
           />
@@ -102,7 +104,7 @@ const Navbar = () => {
           <Link to="/cart" className="relative p-2 rounded-full hover:bg-gray-100 transition-colors">
             <ShoppingCart className="w-5 h-5 text-sammy-dark" />
             <span className="absolute -top-1 -right-1 bg-sammy-pink text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-              0
+              {itemCount}
             </span>
           </Link>
           <button 

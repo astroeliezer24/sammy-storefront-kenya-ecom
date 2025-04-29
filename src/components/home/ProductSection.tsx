@@ -65,7 +65,7 @@ const SAMPLE_PRODUCTS: ProductProps[] = [
     id: '8',
     name: 'Mixed Children\'s Clothing Bale',
     category: 'Wholesale Bales',
-    image: '/lovable-uploads/b35fbd21-f581-4c8a-ae99-306283003a92.png',
+    image: '/lovable-uploads/b3035c1d-179e-4b16-956b-8e053f5a090b.png',
     price: 25000,
     isSale: true,
     discount: 10

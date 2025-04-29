@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -7,16 +7,11 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Trash2, ShoppingBag, ArrowRight } from 'lucide-react';
 import { toast } from 'sonner';
-
-interface CartItem {
-  id: string;
-  name: string;
-  price: number;
-  image: string;
-  quantity: number;
-}
+import { useCart } from '@/contexts/CartContext';
 
 const Cart = () => {
+  const { items, removeItem, updateQuantity, itemCount } = useCart();
+  
   useEffect(() => {
     // Scroll to top on page load
     window.scrollTo(0, 0);
@@ -24,27 +19,9 @@ const Cart = () => {
     document.title = 'Shopping Cart | Sammy Mitumba Stores';
   }, []);
 
-  // Sample cart data
-  const [cartItems, setCartItems] = useState<CartItem[]>([
-    {
-      id: '1',
-      name: 'Premium Men\'s Denim Jeans',
-      price: 1200,
-      image: 'https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8amVhbnN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
-      quantity: 2
-    },
-    {
-      id: '4',
-      name: 'Leather Office Shoes',
-      price: 2200,
-      image: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
-      quantity: 1
-    }
-  ]);
-
   // Calculate totals
-  const subtotal = cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
-  const shipping = 350; // Fixed shipping cost
+  const subtotal = items.reduce((total, item) => total + (item.price * item.quantity), 0);
+  const shipping = items.length > 0 ? 350 : 0; // Fixed shipping cost
   const total = subtotal + shipping;
 
   // Format currency
@@ -53,21 +30,6 @@ const Cart = () => {
       style: 'currency',
       currency: 'KES'
     }).format(amount);
-  };
-
-  // Update quantity
-  const updateQuantity = (id: string, newQuantity: number) => {
-    if (newQuantity < 1) return;
-    
-    setCartItems(cartItems.map(item => 
-      item.id === id ? { ...item, quantity: newQuantity } : item
-    ));
-  };
-
-  // Remove item from cart
-  const removeItem = (id: string) => {
-    setCartItems(cartItems.filter(item => item.id !== id));
-    toast.success("Item removed from cart");
   };
 
   // Proceed to checkout
@@ -83,17 +45,17 @@ const Cart = () => {
         <div className="container mx-auto px-4">
           <h1 className="text-4xl font-bold text-sammy-dark mb-8">Shopping Cart</h1>
           
-          {cartItems.length > 0 ? (
+          {items.length > 0 ? (
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {/* Cart items */}
               <div className="lg:col-span-2">
                 <div className="bg-white shadow-md rounded-xl overflow-hidden">
                   <div className="bg-gray-50 py-4 px-6 border-b">
-                    <h2 className="font-semibold text-lg">Cart Items ({cartItems.length})</h2>
+                    <h2 className="font-semibold text-lg">Cart Items ({itemCount})</h2>
                   </div>
                   
                   <div className="divide-y">
-                    {cartItems.map((item) => (
+                    {items.map((item) => (
                       <div key={item.id} className="p-6 flex flex-col sm:flex-row items-center gap-6">
                         <div className="h-24 w-24 flex-shrink-0 rounded-md overflow-hidden bg-gray-100">
                           <img 

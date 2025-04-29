@@ -13,7 +13,7 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center">
               <img 
-                src="/lovable-uploads/c9cc160c-13c7-4fef-8d3d-bda471ffd653.png"
+                src="/lovable-uploads/dca564d9-94d4-4140-aea5-cfb7529ac3a1.png"
                 alt="Sammy Mitumba Stores Logo"
                 className="h-12 w-auto mr-3"
               />
